@@ -177,7 +177,7 @@
                                 display: none;
                             }
                         </style>
-                        <div class="cards col-sm-12 col-md-12 col-lg-12 gap-4 d-flex overflow-hidden overflow-scroll px-4">
+                        <div class="cards col-sm-12 col-md-12 col-lg-12 gap-4 d-flex overflow-hidden overflow-x-scroll px-4">
                             {% for products in category.productcategory.all %}
                             <div class="col-sm-12 col-md-12 col-lg-3 align-content-center">
                                 <div class="card-container"onclick="location.href='{% url 'product_itemView_detail' products.id %}'">
