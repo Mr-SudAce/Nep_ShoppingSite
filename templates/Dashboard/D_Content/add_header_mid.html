@@ -1,0 +1,18 @@
+{% extends "Dashboard/dashboard.html" %}
+
+{% block add_header_mid %}
+<h1>Header</h1>
+
+<table class="table table-borderless">
+    <tr>
+        <th><label for="cart_user">Image Left</label></th>
+        <td>{{header_mid.header_image_left}}</td>
+    </tr>
+    <tr>
+        <th><label for="cart_status">Image Right</label></th>
+        <td>{{header_mid.header_image_right}}</td>
+    </tr>
+</table>
+
+<button type="submit" name="submit_header_mid_save" class="btn btn-success">Save</button>
+{% endblock %}

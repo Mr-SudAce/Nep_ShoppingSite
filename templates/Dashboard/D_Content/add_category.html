@@ -1,0 +1,22 @@
+{% extends "Dashboard/dashboard.html" %}
+
+{% block add_category %}
+<h1>Add Category</h1>
+
+<table class="table table-borderless">
+    <tr>
+        <th><label for="category_icon">Icon: </label></th>
+        <td>{{A_category.category_icon}}</td>
+    </tr>
+    <tr>
+        <th><label for="category_name">Name: </label></th>
+        <td>{{A_category.category_name}}</td>
+    </tr>
+    <tr>
+        <th><label for="category_image">Category Image: </label></th>
+        <td>{{A_category.category_image}}</td>
+    </tr>
+</table>
+
+<button type="submit" name="submit_A_category" class="btn btn-success">Save</button>
+{% endblock %}
