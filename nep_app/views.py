@@ -353,19 +353,41 @@ def add_cart_item(request):
 
 
 # header
+# def header_mid(request):
+#     if request.method == "POST":
+#         if "submit_header_mid_save" in request.POST:
+#             header_mid = HeaderView(request.POST, request.FILES)
+#             if header_mid.is_valid():
+#                 header_mid.save()
+#                 return redirect("add_header_mid")
+#     else:
+#         header_mid = HeaderView()
+
+#     context = {"header_mid": header_mid}
+#     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
+
 def header_mid(request):
-    hm = Header.objects.all()
+    existing_header = Header.objects.first()
+
     if request.method == "POST":
         if "submit_header_mid_save" in request.POST:
+            # If a Header already exists, prevent saving a new one
+            if existing_header:
+                from django.contrib import messages
+                messages.error(request, "Only one Header instance is allowed.")
+                return redirect("add_header_mid")
+
             header_mid = HeaderView(request.POST, request.FILES)
             if header_mid.is_valid():
                 header_mid.save()
                 return redirect("add_header_mid")
     else:
-        header_mid = HeaderView()
+        header_mid = HeaderView(instance=existing_header)  # Pass existing data if it exists
 
-    context = {"header_mid": header_mid, "hm": hm}
+    context = {"header_mid": header_mid, "existing_header": existing_header}
     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
+
+
 
 # pages
 def new_user_guide(request):
