@@ -131,19 +131,18 @@
                 <div class="d-flex col-sm-12 col-md-4 col-lg-3 align-items-center justify-content-center"
                     style="height: 50px;">
 
-                    
+
 
                     <a href="{% url 'home' %}">
 
-                        {% for header in hm %}
+                        {% for header in header_mid %}
                         {% if header.header_image_left %}
-                        <img src="{{ header.header_image_left.url }}" alt="NepHot" style="width: 100px;">
+                        <img src="{{ header.header_image_left.url }}" alt="Header Image" style="width: 100px;">
                         {% else %}
-                        <img src="{% static 'images/default_image.png' %}" alt="NepHot" style="width: 100px;">
+                        <img src="{% static 'images/default_image.png' %}" alt="Default Image"
+                            style="width: 100px;">
                         {% endif %}
                         {% endfor %}
-
-                        <!-- <img src="/media/header/TechSpot_XB4urve.png" alt="NepHot" style="width: 80px;"> -->
                     </a>
                 </div>
 

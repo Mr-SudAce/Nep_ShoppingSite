@@ -72,6 +72,7 @@ def home(request):
     sub_category = Sub_Category.objects.all()
     sliders = image_Slider.objects.all()
     product = Product.objects.all()
+    header_mid = Header.objects.all()
 
     if request.user.is_authenticated:
         cart = Cart.objects.filter(user=request.user, is_paid=False).first()
@@ -93,6 +94,7 @@ def home(request):
         "cart_item": cart_items,
         "total_items_count": total_items_count,
         "grand_total": grand_total,
+        "header_mid": header_mid,
     }
     return render(request, "home.html", context)
 
@@ -362,9 +364,7 @@ def header_mid(request):
     else:
         header_mid = HeaderView()
 
-    context = {"header_mid": header_mid,
-               "hm": hm
-               }
+    context = {"header_mid": header_mid, "hm": hm}
     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
 
 # pages
