@@ -84,7 +84,7 @@ class CartItem(models.Model):
 # Header////////////////////////////////
 
 class Header(models.Model):
-    header_image_left = models.ImageField(upload_to="header/", null=True, blank=True)
-    header_image_right = models.ImageField(upload_to="header/", null=True, blank=True)
+    header_image_left = models.ImageField(upload_to="header/", default="")
+    header_image_right = models.ImageField(upload_to="header/", default="")
     def __str__(self) -> str:
         return f"{self.header_image_left} - {self.header_image_right}"

@@ -272,12 +272,6 @@ def update_cart_quantity(request, id):
             return redirect("product_itemView_detail", id=id)
 
 
-def header_view(request):
-    header_mid = Header.objects.all()
-    context = {"header_midd": header_mid}
-    return render(request, "Dashboard/D_Content/add_header_mid.html", context)
-
-
 # Dashboard
 def dashboard(request):
     return render(request, "Dashboard/dashboard.html")
@@ -365,7 +359,6 @@ def header_mid(request):
                 header_mid.save()
                 return redirect("add_header_mid")
     else:
-        # Initialize the form for GET request
         header_mid = HeaderView()
 
     context = {"header_mid": header_mid}

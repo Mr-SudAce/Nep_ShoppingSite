@@ -127,16 +127,19 @@
     <div class="container">
         <div class="col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap py-5 gap-1">
             <div class=" col-sm-12 col-md-12 col-lg-12 d-flex flex-wrap justify-content-between">
-                <div class="d-flex col-sm-12 col-md-4 col-lg-3 align-items-center justify-content-center"
-                    style="height: 100px;">
-                    {% for headers in header_mid %}
-                    {% if headers.header_image_left %}
-                    <img src="{% static 'images/default_image.png' %}" alt="NepHot" style="width: 90px;">
-                    {% else %}
-                    <img src="{{ headers.header_image_left.url }}" alt="NepHot" style="width: 90px;">
-                    {% endif %}
-                    {% endfor %}
+                
+                <div class="d-flex col-sm-12 col-md-4 col-lg-3 align-items-center justify-content-center" style="height: 100px;">
+                    <!-- {% for header in header_mid %}
+                        {% if header.header_image_left %}
+                            <img src="{{ header.header_image_left }}" alt="NepHot" style="width: 100px;">
+                        {% else %}
+                        {% endif %}
+                        {% endfor %} -->
+                        <a href="{% url 'home' %}">
+                            <img src="/media/header/TechSpot_XB4urve.png" alt="NepHot" style="width: 100px;">
+                        </a>
                 </div>
+                
                 <div class="d-flex col-sm-12 col-md-8 col-lg-7">
                     <div class="d-flex">
                         <select class="form-control rounded-0 m-auto bg-light" style="width: 150px;">
