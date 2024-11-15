@@ -272,6 +272,12 @@ def update_cart_quantity(request, id):
             return redirect("product_itemView_detail", id=id)
 
 
+def header_view(request):
+    header_mid = Header.objects.all()
+    context = {"header_midd": header_mid}
+    return render(request, "Dashboard/D_Content/add_header_mid.html", context)
+
+
 # Dashboard
 def dashboard(request):
     return render(request, "Dashboard/dashboard.html")
@@ -349,6 +355,7 @@ def add_cart_item(request):
     context = {"A_cat_item": A_cat_item}
     return render(request, "Dashboard/D_Content/add_cart_item.html", context)
 
+
 # header
 def header_mid(request):
     if request.method == "POST":
@@ -412,6 +419,3 @@ def my_orders(request):
 
 def blog(request):
     return render(request, "Pages/blog.html")
-
-
-

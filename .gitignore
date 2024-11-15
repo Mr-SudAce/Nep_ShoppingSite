@@ -15,7 +15,7 @@ __pycache__/
 .sqlite3
 
 # Django migrations
-**/migrations/
+# */migrations/
 
 # Media and static files
 

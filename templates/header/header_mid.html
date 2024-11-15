@@ -131,9 +131,9 @@
                     style="height: 100px;">
                     {% for headers in header_mid %}
                     {% if headers.header_image_left %}
-                    <img src="{{ headers.header_image_left.url }}" alt="NepHot" style="width: 90px;">
-                    {% else %}
                     <img src="{% static 'images/default_image.png' %}" alt="NepHot" style="width: 90px;">
+                    {% else %}
+                    <img src="{{ headers.header_image_left.url }}" alt="NepHot" style="width: 90px;">
                     {% endif %}
                     {% endfor %}
                 </div>
