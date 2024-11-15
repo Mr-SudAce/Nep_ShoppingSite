@@ -352,6 +352,7 @@ def add_cart_item(request):
 
 # header
 def header_mid(request):
+    hm = Header.objects.all()
     if request.method == "POST":
         if "submit_header_mid_save" in request.POST:
             header_mid = HeaderView(request.POST, request.FILES)
@@ -361,9 +362,10 @@ def header_mid(request):
     else:
         header_mid = HeaderView()
 
-    context = {"header_mid": header_mid}
+    context = {"header_mid": header_mid,
+               "hm": hm
+               }
     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
-
 
 # pages
 def new_user_guide(request):
