@@ -3,4 +3,4 @@ from .models import *
 # Register your models here.
 
 
-admin.site.register([Category,Sub_Category, image_Slider, Product, Cart, CartItem, Header,])
+admin.site.register([Category,Sub_Category, image_Slider, Product, Cart, CartItem, Header, Other_Details, Footer, ])

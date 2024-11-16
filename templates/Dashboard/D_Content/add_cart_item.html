@@ -6,18 +6,7 @@
 
 
 <table class="table table-borderless">
-    <tr>
-        <th><label for="cart_item">Cart</label></th>
-        <td>{{A_cat_item.cart}}</td>
-    </tr>
-    <tr>
-        <th>Product</th>
-        <td>{{A_cat_item.product}}</td>
-    </tr>
-    <tr>
-        <th>Quantity</th>
-        <td>{{A_cat_item.quantity}}</td>
-    </tr>
+    {{A_cat_item.as_table}}
 </table>
 <button type="submit" name="submit_A_cat_item" class="btn btn-success">Save</button>
 

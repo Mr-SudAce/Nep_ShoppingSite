@@ -4,14 +4,7 @@
 <h1>Add Cart</h1>
 
 <table class="table table-borderless">
-    <tr>
-        <th><label for="cart_user">User</label></th>
-        <td>{{A_cart.user}}</td>
-    </tr>
-    <tr>
-        <th><label for="cart_status">Status</label></th>
-        <td>{{A_cart.is_paid}}</td>
-    </tr>
+    {{A_cart.as_table}}
 </table>
 
 <button type="submit" name="submit_A_cart" class="btn btn-success">Save</button>

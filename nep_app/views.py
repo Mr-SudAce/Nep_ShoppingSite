@@ -73,6 +73,8 @@ def home(request):
     sliders = image_Slider.objects.all()
     product = Product.objects.all()
     header_mid = Header.objects.all()
+    other_details = Other_Details.objects.all()
+    footer = Footer.objects.all()
 
     if request.user.is_authenticated:
         cart = Cart.objects.filter(user=request.user, is_paid=False).first()
@@ -95,6 +97,8 @@ def home(request):
         "total_items_count": total_items_count,
         "grand_total": grand_total,
         "header_mid": header_mid,
+        "other_details": other_details,
+        "footer": footer,
     }
     return render(request, "home.html", context)
 
@@ -352,28 +356,44 @@ def add_cart_item(request):
     return render(request, "Dashboard/D_Content/add_cart_item.html", context)
 
 
+# add footer
+def add_footer(request):
+    A_footer = AddFooterView()
+    if request.method == "POST":
+        if "submit_A_footer" in request.POST:
+            A_footer = AddFooterView(request.POST, request.FILES)
+            if A_footer.is_valid():
+                A_footer.save()
+                return redirect("add_footer")
+    context = {"A_footer": A_footer}
+    return render(request, "Dashboard/D_Content/add_footer.html", context)
+
+
+
+
+
+# otherdetails
+def add_other_detail(request):
+    A_otherdetails = AddOtherDetailView()
+    if request.method == "POST":
+        if "submit_A_otherdetails" in request.POST:
+            A_otherdetails = AddOtherDetailView(request.POST, request.FILES)
+            if A_otherdetails.is_valid():
+                A_otherdetails.save()
+                return redirect("add_other_detail")
+    context = {"A_otherdetails": A_otherdetails}
+    return render(request, "Dashboard/D_Content/add_other_detail.html", context)
+
+
 # header
-# def header_mid(request):
-#     if request.method == "POST":
-#         if "submit_header_mid_save" in request.POST:
-#             header_mid = HeaderView(request.POST, request.FILES)
-#             if header_mid.is_valid():
-#                 header_mid.save()
-#                 return redirect("add_header_mid")
-#     else:
-#         header_mid = HeaderView()
-
-#     context = {"header_mid": header_mid}
-#     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
-
 def header_mid(request):
     existing_header = Header.objects.first()
 
     if request.method == "POST":
         if "submit_header_mid_save" in request.POST:
-            # If a Header already exists, prevent saving a new one
             if existing_header:
                 from django.contrib import messages
+
                 messages.error(request, "Only one Header instance is allowed.")
                 return redirect("add_header_mid")
 
@@ -382,11 +402,10 @@ def header_mid(request):
                 header_mid.save()
                 return redirect("add_header_mid")
     else:
-        header_mid = HeaderView(instance=existing_header)  # Pass existing data if it exists
+        header_mid = HeaderView(instance=existing_header)
 
     context = {"header_mid": header_mid, "existing_header": existing_header}
     return render(request, "Dashboard/D_Content/add_header_mid.html", context)
-
 
 
 # pages

@@ -1,0 +1,11 @@
+{% extends "Dashboard/dashboard.html" %}
+
+{% block add_footer %}
+<h1>Add Footer</h1>
+
+<table class="table table-borderless">
+    {{A_footer.as_table}}
+</table>
+
+<button type="submit" name="submit_A_footer" class="btn btn-success">Save</button>
+{% endblock %}

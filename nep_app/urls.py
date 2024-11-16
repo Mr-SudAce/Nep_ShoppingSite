@@ -42,6 +42,8 @@ urlpatterns = [
     path("dashboard/add-cart/", add_cart, name="add_cart"),
     path("dashboard/add-cart-item/", add_cart_item, name="add_cart_item"),
     path("dashboard/add_header_mid/", header_mid, name="add_header_mid"),
+    path("dashboard/add_other_detail/", add_other_detail, name="add_other_detail"),
+    path("dashboard/add_footer/", add_footer, name="add_footer"),
     #
     #
     # search

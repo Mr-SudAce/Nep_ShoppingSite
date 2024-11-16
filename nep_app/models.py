@@ -98,3 +98,35 @@ class Header(models.Model):
 
     def __str__(self) -> str:
         return f"{self.header_image_left} - {self.header_image_right}"
+
+
+# Other details
+
+
+class Other_Details(models.Model):
+    Email = models.EmailField()
+    Address = models.CharField(max_length=200)
+    Phone_number = models.CharField(max_length=200)
+    Facebook = models.CharField(max_length=200)
+    Twitter = models.CharField(max_length=200)
+    Instagram = models.CharField(max_length=200)
+
+    def __str__(self) -> str:
+        return f"{self.Email} - {self.Address} - {self.Phone_number} - {self.Facebook} - {self.Twitter} - {self.Instagram}"
+
+
+class Footer(models.Model):
+    Site_title = models.CharField(max_length=200)
+    logo = models.ForeignKey(Header, on_delete=models.CASCADE)
+    Email = models.ForeignKey(
+        Other_Details, on_delete=models.CASCADE, related_name="footer_email"
+    )
+    Address = models.ForeignKey(
+        Other_Details, on_delete=models.CASCADE, related_name="footer_address"
+    )
+    Phone_number = models.ForeignKey(
+        Other_Details, on_delete=models.CASCADE, related_name="footer_phone_number"
+    )
+
+    def __str__(self) -> str:
+        return f"{self.Site_title} - {self.logo} - {self.Email} - {self.Address} - {self.Phone_number}"

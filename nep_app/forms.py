@@ -54,3 +54,15 @@ class HeaderView(forms.ModelForm):
     class Meta:
         model = Header
         fields = ['header_image_left', 'header_image_right']
+        
+
+class AddOtherDetailView(forms.ModelForm):
+    class Meta:
+        model = Other_Details
+        fields = ['Email', 'Address', 'Phone_number', 'Facebook', 'Twitter', 'Instagram']
+
+
+class AddFooterView(forms.ModelForm):
+    class Meta:
+        model = Footer
+        fields = ['Site_title', 'logo', 'Email', 'Address', 'Phone_number']

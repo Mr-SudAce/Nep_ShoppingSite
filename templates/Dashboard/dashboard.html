@@ -137,6 +137,17 @@
                                     class=" fw-bold dash_link nav-link text-start {% if request.resolver_match.url_name == 'add_cart_item' %} active text-primary {% endif %} "
                                     onclick="toggleDisplay('Add_cart_item')"><i
                                         class="bi bi-plus fw-bold px-2 py-0"></i>Cart Item</a>
+
+                                <a href="{% url 'add_other_detail' %}"
+                                    class=" fw-bold dash_link nav-link text-start {% if request.resolver_match.url_name == 'add_other_detail' %} active text-primary {% endif %}"
+                                    onclick="toggleDisplay('add_other_detail')"><i
+                                        class="bi bi-plus fw-bold px-2 py-0"></i>Order Details</a>
+                                
+                                <a href="{% url 'add_footer' %}"
+                                    class=" fw-bold dash_link nav-link text-start {% if request.resolver_match.url_name == 'add_footer' %} active text-primary {% endif %}"
+                                    onclick="toggleDisplay('add_footer')"><i
+                                        class="bi bi-plus fw-bold px-2 py-0"></i>Footer</a>
+
                             </div>
 
                         </div>
@@ -163,12 +174,19 @@
                                                 {% url 'add_cart' %}
                                             {% elif request.resolver_match.url_name == 'add_cart_item' %}
                                                 {% url 'add_cart_item' %}
+                                            {% elif request.resolver_match.url_name == 'add_other_detail' %}
+                                                {% url 'add_other_detail' %}
+                                            {% elif request.resolver_match.url_name == 'add_footer' %} 
+                                                {% url 'add_footer' %}   
+                                                
+                                                
+                                                
                                             {% else %}
                                                 {% url 'dashboard' %}
                                             {% endif %}" method="POST" enctype="multipart/form-data">
-                            
+
                                     {% csrf_token %}
-                            
+
                                     {% block add_product %} {% endblock %}
                                     {% block add_category %} {% endblock %}
                                     {% block add_sub_category %} {% endblock %}
@@ -176,6 +194,9 @@
                                     {% block add_cart %} {% endblock %}
                                     {% block add_cart_item %} {% endblock %}
                                     {% block add_header_mid %} {% endblock %}
+                                    {% block add_other_detail %} {% endblock %}
+                                    {% block add_footer %} {% endblock %}
+
                                 </form>
                             </div>
 

@@ -1,3 +1,4 @@
+{% load static %}
 <style>
     .footer table th {
         padding-right: 15px;
@@ -38,7 +39,15 @@
                         <h3>NEP HOT Pvt. Ltd.</h3>
                     </div>
                     <div class="py-3">
-                        <img src="/static/images/logo.png" alt="">
+                        <!-- <img src="/static/images/logo.png" alt=""> -->
+                        {% for footer in footer %}
+                        {% if footer %}
+                        <!-- <img src="{{ footer.footer_image_left.url }}" alt="footer Image" style="width: 100px;"> -->
+                        <img src="{{ footer.footer_image_right.url }}" alt="footer Image" style="width: 100px;">
+                        {% else %}
+                        <img src="{% static 'images/default_image.png' %}" alt="Default Image" style="width: 100px;">
+                        {% endif %}
+                        {% endfor %}
                     </div>
                     <div class="py-2">
                         <table>
