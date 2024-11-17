@@ -98,7 +98,7 @@ def home(request):
         "grand_total": grand_total,
         "header_mid": header_mid,
         "other_details": other_details,
-        "footer": footer,
+        "footer_details": footer,
     }
     return render(request, "home.html", context)
 

@@ -39,35 +39,36 @@
                         <h3>NEP HOT Pvt. Ltd.</h3>
                     </div>
                     <div class="py-3">
-                        <!-- <img src="/static/images/logo.png" alt=""> -->
-                        {% for footer in footer %}
-                        {% if footer %}
-                        <!-- <img src="{{ footer.footer_image_left.url }}" alt="footer Image" style="width: 100px;"> -->
-                        <img src="{{ footer.footer_image_right.url }}" alt="footer Image" style="width: 100px;">
+                        {% for header in header_mid %}
+                        {% if header %}
+                        <!-- <img src="{{ header.header_image_left.url }}" alt="Header Image" style="width: 100px;"> -->
+                        <img src="{{ header.header_image_right.url }}" alt="Header Image" style="width: 90px;">
                         {% else %}
-                        <img src="{% static 'images/default_image.png' %}" alt="Default Image" style="width: 100px;">
+                        <img src="{% static 'images/default_image.png' %}" alt="Default Image" style="width: 90px;">
                         {% endif %}
                         {% endfor %}
                     </div>
                     <div class="py-2">
                         <table>
                             <tbody>
+                                {% for footer in footer_details %}
                                 <tr>
                                     <th>Address:</th>
-                                    <td>New Road, KTM</td>
+                                    <td>{{ footer.Address }}</td>
                                 </tr>
                                 <tr>
                                     <th>Phone:</th>
-                                    <td>+977 986-2953766</td>
+                                    <td>{{ footer.Phone_number }}</td>
                                 </tr>
                                 <tr>
                                     <th>Email:</th>
-                                    <td>info@nephot.com</td>
+                                    <td>{{ footer.Email }}</td>
                                 </tr>
                                 <tr>
                                     <th>Reg No:</th>
                                     <td>95235632</td>
                                 </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
